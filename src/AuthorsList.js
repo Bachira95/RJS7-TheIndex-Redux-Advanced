@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 // Components
 import AuthorCard from "./AuthorCard";
 import SearchBar from "./SearchBar";
@@ -35,4 +35,10 @@ class AuthorsList extends Component {
   }
 }
 
-export default AuthorsList;
+const mapStateToProps = state => {
+  return {
+    authors: state.authorsState.authors
+  };
+};
+
+export default connect(mapStateToProps)(AuthorsList);
